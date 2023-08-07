@@ -23,6 +23,13 @@ Tech: Vue.js,vuex,vue-persist, ES7 and Babel, SCSS, Webpack,vuedraggable
 
 6. By default, on initial opening, app requests the current user’s location and display the weather in their city.
 
+## node
+
+node - v >= v14
+
+recommended:
+v14.18.0
+
 ## Project setup
 
 ```
