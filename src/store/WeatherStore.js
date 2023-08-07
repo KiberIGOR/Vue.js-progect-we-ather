@@ -21,7 +21,6 @@ const PersoneStore = {
     moveWeatherIndex(state, indexes) {
       const { oldIndex, newIndex } = indexes;
       let arr = new Array(...state.weather);
-      console.log(arr);
       const element = arr[oldIndex];
       arr.splice(oldIndex, 1);
       arr.splice(newIndex, 0, element);
@@ -34,7 +33,6 @@ const PersoneStore = {
   actions: {
     async reloadAllData({ commit, getters }) {
       const weatherApi = new WeatherApiClient();
-      console.log(getters.getCities);
       const weatherCites = await weatherApi.getCitiesWeather(getters.getCities);
       commit("updateWeather", weatherCites);
       commit("changeLoadingState", false);

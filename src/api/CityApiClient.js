@@ -4,7 +4,6 @@ import CityModel from "../models/CityModel";
 export default class CityApiClient {
   async getCityCoordinates(cityName) {
     const httpCloent = axios.create();
-    console.log(cityName, "Имя в фукции");
 
     try {
       const cityCoordinates = await httpCloent.get(
@@ -15,7 +14,6 @@ export default class CityApiClient {
         cityCoordinates.data[0] != null &&
         cityCoordinates.status == 200
       ) {
-        console.log(cityCoordinates);
         const cityModel = new CityModel(cityCoordinates.data[0]);
         return cityModel;
       } else {

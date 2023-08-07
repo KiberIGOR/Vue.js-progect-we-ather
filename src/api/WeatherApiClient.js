@@ -25,7 +25,6 @@ export default class WeatherApiClient {
       const cityWather = await httpCloent.get(
         `${process.env.VUE_APP_API_HOST}/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&units=metric&appid=${process.env.VUE_APP_API_KEY}`
       );
-      console.log(cityWather);
       if (
         cityWather != null &&
         cityWather.data != null &&

@@ -99,13 +99,10 @@ export default {
         oldIndex: oldIndex,
         newIndex: newIndex,
       };
-      console.log(oldIndex, newIndex, obg);
       this.$store.commit("moveCityIndex", oldIndex, newIndex);
       this.$store.commit("moveWeatherIndex", obg);
     },
   },
-  mounted() {
-    console.log(this.$store.getters.getCities);
-  },
+  mounted() {},
 };
 </script>
