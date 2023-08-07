@@ -1,0 +1,139 @@
+.a-input__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-shrink: 1;
+  --a-color_text: #11253d;
+  --a-color_text--secondary: #707c8b;
+  --a-color_thumbnail: #cfd3d8;
+  --a-color_bg--secondary: #f5f5f5;
+  --a-color_link: #ff0040;
+}
+
+.a-input__label {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 0;
+  color: var(--a-color_text--secondary);
+  line-height: 16px;
+
+  &--large {
+    font-size: 14px;
+  }
+  &--medium {
+    font-size: 13px;
+  }
+  &--error {
+    color: var(--a-color_link);
+  }
+  &[class*=" si-"]::before {
+    margin-right: 8px;
+  }
+}
+
+.a-input__row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 1;
+}
+
+// Icon
+.a-input__icon {
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.a-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 16px;
+  color: var(--a-color_text);
+  border: 1px solid var(--a-color_thumbnail);
+  border-radius: 2px;
+  outline: none;
+  font-size: 14px;
+
+  &:focus {
+    border: 1px solid var(--a-color_text--secondary);
+  }
+  &:invalid {
+    color: var(--a-color_link);
+    border: 1px solid var(--a-color_link);
+  }
+
+  &:disabled {
+    color: var(--a-color_text--secondary);
+    background-color: var(--a-color_bg--secondary);
+    border: 1px solid var(--a-color_bg--secondary);
+    cursor: auto;
+  }
+
+  &--phone {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  &--large {
+    height: 40px;
+  }
+
+  &--textarea {
+    resize: vertical;
+    overflow-y: hidden;
+    min-height: 80px;
+    padding: 12px 16px;
+  }
+
+  &--error {
+    color: var(--a-color_link);
+    &::placeholder {
+      color: var(--a-color_link);
+    }
+    &,
+    &:focus {
+      border: 1px solid var(--a-color_link);
+    }
+  }
+  &:disabled + .a-input__icon {
+    display: none;
+  }
+  &__enter {
+    background: unset;
+    border: unset;
+    &-img {
+      width: 30px;
+      height: 30px;
+      margin-left: 10px;
+    }
+  }
+}
+
+.a-input__subscription {
+  display: flex;
+  margin: 0;
+  margin-top: 8px;
+  padding: 0;
+  color: var(--a-color_link);
+
+  font-size: 14px;
+  line-height: 16px;
+
+  &--large {
+    font-size: 14px;
+  }
+  &--medium {
+    font-size: 13px;
+  }
+}

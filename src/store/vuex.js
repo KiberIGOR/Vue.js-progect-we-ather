@@ -2,7 +2,7 @@ import Vue from "vue";
 import Vuex from "vuex";
 import VuexPersistence from "vuex-persist";
 import CityStore from "./CityStore";
-import WetherStore from "./WetherStore";
+import WeatherStore from "./WeatherStore";
 Vue.use(Vuex);
 const vuexLocal = new VuexPersistence({
   storage: window.localStorage,
@@ -11,7 +11,7 @@ const vuexLocal = new VuexPersistence({
 const store = new Vuex.Store({
   modules: {
     CityStore,
-    WetherStore,
+    WeatherStore,
   },
   plugins: [vuexLocal.plugin],
 });

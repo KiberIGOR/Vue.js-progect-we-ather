@@ -1,31 +1,55 @@
 import CityApiClient from "../api/CityApiClient";
 
-const SitesStore = {
+const CitiesStore = {
   state: {
-    sites: [],
+    cities: [],
+    isInitialOpening: true,
   },
   mutations: {
-    addSity(state, city) {
-      state.sites.push(city);
+    addCity(state, city) {
+      state.cities.push(city);
     },
-    dellSity(state, city) {
-      state.sites = state.sites.filter((el) => el.city !== city.city);
+    dellCity(state, city) {
+      state.cities = state.cities.filter((el) => el.city !== city);
     },
-    clearSites(state) {
-      state.sites = [];
+    clearCites(state) {
+      state.cities = [];
+    },
+    initialOpening(state) {
+      state.isInitialOpening = false;
+    },
+    moveCityIndex(state, fromIndex) {
+      const element = state.cities.splice(fromIndex, 1)[0];
+      state.cities.splice(fromIndex, 0, element);
     },
   },
   actions: {
-    async loadSite({ commit }, cityName) {
-      const cityApi = new CityApiClient();
-      const cityCoordinates = await cityApi.getCityCoordinates(cityName);
-      commit("addSity", cityCoordinates);
+    async loadCity({ commit, state, dispatch }, cityName) {
+      if (
+        !state.cities.find(
+          (el) => el.city.toLowerCase() === cityName.toLowerCase()
+        )
+      ) {
+        const cityApi = new CityApiClient();
+        const cityCoordinates = await cityApi.getCityCoordinates(cityName);
+        if (cityCoordinates?.city?.toLowerCase() === cityName.toLowerCase()) {
+          commit("addCity", cityCoordinates);
+          dispatch("loadWeather", cityCoordinates);
+          return;
+        } else {
+          return "Invalid input, please check the name";
+        }
+      }
+      return "This city has already been added";
     },
   },
   getters: {
-    getSites(state) {
-      return state.sites;
+    getCities(state) {
+      return state.cities;
+    },
+    isInitialOpening(state) {
+      return state.isInitialOpening;
     },
   },
 };
-export default SitesStore;
+export default CitiesStore;

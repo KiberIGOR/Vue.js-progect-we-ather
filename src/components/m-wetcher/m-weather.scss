@@ -1,0 +1,97 @@
+.m-weather {
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
+  &__inner {
+  }
+  &__city {
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__weather {
+    &-temp {
+      display: flex;
+      align-items: center;
+      &-icon {
+        width: 100px;
+        height: 100px;
+      }
+
+      &-number {
+        font-weight: 600;
+        font-size: 33px;
+        font-weight: 35px;
+      }
+    }
+
+    &-text {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      text-align: center;
+
+      &-feels {
+        margin: 0;
+      }
+
+      &-light {
+        margin: 0;
+      }
+    }
+    &-description {
+      text-align: center;
+      margin: 5px 0 10px;
+    }
+    &-other {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      justify-content: space-between;
+      gap: 15px 10px;
+    }
+    &-wind {
+      display: flex;
+      align-items: center;
+      &-icon {
+        width: 25px;
+        height: 25px;
+      }
+
+      &-number {
+        margin: 0;
+        margin-left: 8px;
+      }
+    }
+
+    &-pressure {
+      display: flex;
+      align-items: center;
+      &-icon {
+        width: 25px;
+        height: 25px;
+      }
+
+      &-number {
+        margin: 0;
+        margin-left: 8px;
+      }
+    }
+
+    &-humidity {
+      &-number {
+        margin: 0;
+      }
+    }
+
+    &-dewpoint {
+      &-number {
+        margin: 0;
+      }
+    }
+
+    &-visibility {
+      &-number {
+        margin: 0;
+      }
+    }
+  }
+}

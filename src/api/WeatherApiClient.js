@@ -1,18 +1,18 @@
 import axios from "axios";
-import WetherModel from "../models/WetherModel";
+import WeatherModel from "../models/WeatherModel";
 
-export default class UserApiClient {
+export default class WeatherApiClient {
   constructor() {
     this.#axiosHttpClient = axios.create();
   }
   #axiosHttpClient = null;
 
-  async getCitiesWether(cityArray) {
-    const citiesWetherList = [];
+  async getCitiesWeather(cityArray) {
+    const citiesWeatherList = [];
     try {
       for (let city of cityArray) {
-        const cityWether = this.getCityWather(city);
-        citiesWetherList.push(cityWether);
+        const cityWeather = this.getCityWather(city);
+        citiesWeatherList.push(cityWeather);
       }
     } catch (e) {
       console.error(e);
@@ -31,10 +31,10 @@ export default class UserApiClient {
         cityWather.data != null &&
         cityWather.status == 200
       ) {
-        const cityWether = new WetherModel(cityWather.data);
-        return cityWether;
+        const cityWeather = new WeatherModel(cityWather.data);
+        return cityWeather;
       } else {
-        alert("API-Wether вернула что-то не то");
+        alert("API-Weather вернула что-то не то");
       }
     } catch (e) {
       console.error(e);

@@ -1,14 +1,18 @@
-export default class UserModel {
+export default class WeatherModel {
   constructor(data) {
     if (data) {
       this.id = data.id;
       this.city = data.name;
+      this.country = data.sys.country;
       this.weather.id = data.weather[0].id;
       this.weather.icon = data.weather[0].icon;
-      this.main.temp = data.main.temp;
-      this.main.feels_like = data.main.feels_like;
-      this.weather.description = data.weather[0].description;
-      this.wind.speed = data.wind.speed;
+      this.main.temp = Math.round(data.main.temp);
+      this.main.feels_like = Math.round(data.main.feels_like);
+      this.weather.description =
+        data.weather[0].description.charAt(0).toUpperCase() +
+        data.weather[0].description.slice(1);
+      this.wind.speed = data.wind.speed.toFixed(1);
+      this.wind.deg = data.wind.deg;
       this.wind.gust = data.wind.gust;
       this.main.pressure = data.main.pressure;
       this.main.humidity = data.main.humidity;
@@ -27,6 +31,7 @@ export default class UserModel {
   }
   id = null;
   city = null;
+  country = null;
   weather = {
     id: null,
     icon: null,
@@ -41,6 +46,7 @@ export default class UserModel {
   };
   wind = {
     speed: null,
+    deg: null,
     gust: null,
   };
 }
